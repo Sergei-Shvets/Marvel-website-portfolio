@@ -5,6 +5,7 @@ import CharInfo from "../charInfo/CharInfo";
 import ErrorBoundary from "../errorBoundary/ErrorBoundary";
 
 import decoration from '../../resources/img/vision.png';
+import CharSearchForm from "../charSearchForm/CharSearchForm";
 
 const MainPage = () => {
     const [selectedChart, setChar] = useState(null);
@@ -22,9 +23,14 @@ const MainPage = () => {
                 <ErrorBoundary>
                     <CharList onChartSelected={onChartSelected}/>
                 </ErrorBoundary>
-                <ErrorBoundary>
-                    <CharInfo charId={selectedChart}/>
-                </ErrorBoundary>
+                <div>
+                    <ErrorBoundary>
+                        <CharInfo charId={selectedChart}/>
+                    </ErrorBoundary>
+                    <ErrorBoundary>
+                        <CharSearchForm/>
+                    </ErrorBoundary>
+                </div>
             </div>
             <img className="bg-decoration" src={decoration} alt="vision"/>
         </>
